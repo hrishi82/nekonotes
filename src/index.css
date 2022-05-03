@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+
+:root{
+
+  font-family: 'Poppins', sans-serif;
+
+  /* Default colors */
+
+  --primary-clr: #0565ff;
+  --primary-hover-clr: #013d9c;
+  
+  --white-bg: rgb(255, 255, 255);
+  --dark-bg: rgb(31, 31, 31);
+  --grey-bg: rgba(128, 128, 128, 0.226);
+  --off-white:rgb(231, 231, 231);
+  --super-dark-bg: rgb(0, 0, 0);
+
+  --seperator-line: rgb(197, 196, 196);
+
+
+  /* Default Font colors */
+
+  --text-default-clr: white;
+  --text-secondary-clr: black;
+  --text-grey: rgb(161, 161, 161);
+
+  /* Badge */
+  --badge-w-txt-bg: #ff0000;
+  --badge-font-clr: #ffffff;
+
+  /* Card */
+  --dismiss-btn-background: black;
+  --card-bg: rgb(31, 31, 31);
+
+
+  /* Search bar */
+  --search-bar-bg-clr: rgb(31, 31, 31);
+
+
+  /* Sidebar */
+  --sidebar-text-clr: white;
+  --sidebar-link-hover-bg: rgb(233, 233, 233);
+  --sidebar-bg: white;
+
+  /* Outline */
+  --outline-color: rgb(91, 91, 91);
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  background-color: var(--dark-bg);
+}
+
+.main-container{
+  max-width: 120rem;
+  padding: 0 1.5rem;
+  margin:auto;
+}
+
+.img-responsive{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/******** Badge ********/
+
+.badge-w-txt{
+  position: absolute;
+  top: -0.3rem;
+  left: 1rem;
+  padding: 0.12rem 0.4rem;
+  border: 1px solid white;
+  color: var(--badge-font-clr);
+  background-color: var(--badge-w-txt-bg);
+  border-radius: 0.5rem;
+  font-size: 0.6rem;
+  width: fit-content;
+}
+
+
+/******** Section margins ********/
+
+.section-gutter-lg{
+  margin: 10rem;
+}
+.section-gutter-md{
+  margin: 7rem;
+}
+.section-gutter-reg{
+  margin: 4rem;
+}
+.section-gutter-sm{
+  margin: 1.5rem;
+}
+
+/******** Top-Bottom margins ********/
+
+.margin-Top-Btm-xs{
+  margin: 0.5rem 0; 
+}
+
+
+/******** Links ********/
+.link-no-decor{
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--text-default-clr);
+}
+
+
+/******** Buttons ********/
+.btn{
+  margin: 0;
+  padding: 0.6rem 0.7rem;
+  width: fit-content;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.pill-btn{
+  border-radius: 5rem;
+}
+
+.pill-btn-lg{
+  padding: 0.8rem 1.5rem;
+}
+
+.card-btn{
+  width: 100%;
+}
+
+.btn-secondary{
+    color: var(--text-secondary-clr);
+    background-color: var(--text-default-clr);
+  }
+
+
+
+
+/******** Responsive media queries ********/
+
+@media screen and (max-width:768px) {
+  html {
+      font-size: 12px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  html {
+      font-size: 10px;
+  }
+}

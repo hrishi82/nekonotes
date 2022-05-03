@@ -1,0 +1,39 @@
+
+
+.allnotes-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    color: var(--text-default-clr);
+    margin-left: 18rem;
+    margin-top: 2rem;
+}
+
+.allnotes-container-info-text{
+    font-size: 1.1rem;
+    margin: 0 0 1rem 0;
+    font-weight: 300;
+}
+
+.allNotes-content-wrapper{
+    margin: 2rem 0;
+}
+
+
+
+
+
+
+
+
+/* @media screen and (max-width:1000px){
+    .allnotes-container-content{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .allnotes-container-content{
+        grid-template-columns: 1fr;
+    }
+} */
