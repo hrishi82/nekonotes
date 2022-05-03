@@ -1,0 +1,109 @@
+.auth-page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: var(--text-default-clr)
+}
+
+.auth-content-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    min-width: 25rem;
+    min-height: 25rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--card-bg);
+}
+
+.auth-title{
+    margin-bottom: 2rem;
+}
+
+.input{
+    margin: 0.3rem 0;
+    color: var(--text-default-clr)
+}
+
+.input-txt{
+    border-radius: 0.2rem;
+}
+.input-flex-cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.input-condition-cont{
+    display: flex;
+    align-items: center;
+}
+
+.input-checkbox{
+    margin: 0;
+}
+
+.auth-form-forget-pass-alignment{
+    margin-left: auto;
+}
+
+.auth-page-link{
+    text-decoration: none;
+    font-weight: 400;
+    color: var(--primary-clr)
+}
+
+.auth-form-btn-container{
+    margin: 2rem 0 0 0; 
+    max-width: 10rem;
+}
+
+.auth-form-btn{
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.logout-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 40rem;
+    background-color: var(--card-bg);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 3rem;
+    overflow: hidden;
+    padding: 3rem 2rem;
+}
+
+.logout-img-container{
+    width: 50%;
+    height: 50%;
+}
+
+.auth-action-signup-link-cont{
+    margin: 1rem 0;
+}
+
+.auth-action-signup-link{
+    font-size: 0.87rem;
+}
+
+.auth-action-signup-link-cont:hover{
+    transform: translateY(-0.2rem);
+    transition-timing-function: ease-in;
+    transition: 0.2s;
+}
+
+.spacing-sm{
+    margin-left: 0.5rem;
+}
+
+
+.btn-secondary:hover{
+    color: var(--text-default-clr) 
+}
