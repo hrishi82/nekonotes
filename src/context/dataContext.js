@@ -12,6 +12,7 @@ const DataProvider = ({children}) =>{
         label: "",
         color: "#1F1F1F",
         pinned: false,
+        archived: false,
         createdOn: new Date().getTime()
       }
     const [formData, setFormData] = useState(initialFormData)

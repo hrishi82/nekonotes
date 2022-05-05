@@ -1,4 +1,6 @@
 export {LandingPage} from "./landingpage/LandingPage"
 export {HomePage} from "./homepage/HomePage"
+export {LabelsPage} from "./labelspage/LabelsPage"
+export {ArchivePage} from "./archivepage/ArchivePage"
 export {LoginPage} from "./authpage/login/LoginPage"
 export {ErrorPage} from "./errorpage/ErrorPage"

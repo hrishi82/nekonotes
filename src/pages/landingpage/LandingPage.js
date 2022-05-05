@@ -7,20 +7,13 @@ import { useData } from "../../context/dataContext"
 
 export const LandingPage = ()=> {
 
-    const {token, setToken, setUser} = useAuth()
-    const {dispatch} = useData()
+    const {token} = useAuth()
     const navigate = useNavigate()
 
     const logoutHandler = (e) =>{
         e.preventDefault()
-        if (e.target.innerText === "Logout"){
-            localStorage.removeItem("login");
-            setToken(null)
-            setUser(null)
-            dispatch({action:"SET_ALL_NOTES", payload: []})
-            dispatch({action:"SET_ALL_ARCHIVED_NOTES", payload: []})
-
-            navigate("/")
+        if (e.target.innerText === "Home"){
+            navigate("/homepage")
         }else{
             navigate("/loginpage")
         }
@@ -34,7 +27,7 @@ export const LandingPage = ()=> {
                 <h1 className="hero-heading text-xl">nekoNote</h1>
                 <p className="hero-para">{token ? "Click on HOME to check out your saved notes" : "Login to start"}</p>
 
-                <button className="btn btn-primary pill-btn hero-btn" onClick={e=>logoutHandler(e)}>{token ? "Logout" : "Login"}</button>
+                <button className="btn btn-primary pill-btn hero-btn" onClick={e=>logoutHandler(e)}>{token ? "Home" : "Login"}</button>
             </section>
 
             <section className="hero-img-container">

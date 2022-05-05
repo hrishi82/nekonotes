@@ -41,7 +41,7 @@ const LoginPage = () => {
 
             const getArchivedNotesResp = await getArchivedNotesServiceHandler({encodedToken: resp.data.encodedToken})
             if (getArchivedNotesResp.status === 200 || getArchivedNotesResp.status === 201 ){
-                dispatch({action:"SET_ALL_ARCHIVED_NOTES", payload: "getArchivedNotesResp.data.notes" })
+                dispatch({action:"SET_ALL_ARCHIVED_NOTES", payload: "getArchivedNotesResp.data.archives" })
             }
 
             navigate("/homepage")

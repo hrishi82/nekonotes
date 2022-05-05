@@ -26,9 +26,39 @@ export const postNoteServiceHandler =  async ({encodedToken, note}) =>{
     })
 }
 
+
 export const postEditedNoteServiceHandler = async ({encodedToken, note, id}) =>{
     return axios.post(`/api/notes/${id}`, 
     {note},
+    {
+        headers: {authorization: encodedToken},
+    })
+}
+
+export const deleteNoteServiceHandler = async ({encodedToken, note, id}) =>{
+    return axios.delete(`/api/notes/${id}`,
+    {
+        headers: {authorization: encodedToken},
+    })
+}
+export const postNotesToArchiveServiceHandler = async ({encodedToken, note, id}) =>{
+    return axios.post(`/api/notes/archives/${id}`, 
+    {note},
+    {
+        headers: {authorization: encodedToken},
+    })
+}
+
+export const restoreNotesFromArchiveServiceHandler = async ({encodedToken, note, id}) =>{
+    return axios.post(`/api/archives/restore/${id}`, 
+    {note},
+    {
+        headers: {authorization: encodedToken},
+    })
+}
+
+export const deleteNotesFromArchiveServiceHandler = async ({encodedToken, note, id}) =>{
+    return axios.delete(`/api/archives/delete/${id}`,
     {
         headers: {authorization: encodedToken},
     })

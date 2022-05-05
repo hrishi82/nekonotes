@@ -6,7 +6,7 @@ import {NotesMain} from "./NotesMain/NotesMain"
 const HomePage = () =>{
     return (
         <>
-            <AsideBar/>
+            {/* <AsideBar/> */}
             <NotesMain/>
         </>
 

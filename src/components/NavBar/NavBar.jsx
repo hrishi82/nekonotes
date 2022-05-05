@@ -23,7 +23,7 @@ const NavBar = () => {
     <nav className="nav-wrapper">
       <nav className="nav-items-left">
         <h4 className="nav-title">
-          <Link to="/" className="link-no-decor">
+          <Link to="/homepage" className="link-no-decor">
             nekoNotes
           </Link>
         </h4>

@@ -5,26 +5,30 @@ import { NoteInput } from "../NoteInput/NoteInput";
 
 export const NotesMain = () => {
   const { state, formData } = useData();
+
+  let pinnedNotesArr = state?.allNotes?.filter(el=>el.pinned).filter(el=>!el.archived)
+  let unpinnedNotesArr = state?.allNotes?.filter(el=>!el.pinned).filter(el=>!el.archived)
   return (
     <section className="allnotes-container">
-      <button onClick={()=>console.log(formData)}>check</button>
       <NoteInput />
-      <div className="allNotes-content-wrapper">
-        <h3 className="allnotes-container-info-text">Pinned Notes</h3>
-        {/* <div className="allnotes-container-content">
-          {state.allNotes.map((el) => {
+{ pinnedNotesArr?.length > 0 && <div className="allNotes-content-wrapper">
+        <h3 className="allnotes-container-info-text">Pinned Notes: {pinnedNotesArr?.length}</h3>
+        <div className="allnotes-container-content">
+          {pinnedNotesArr?.map((el) => {
             return (
               <>
-                <NoteCard key={el._id} data={el} />
+                <NoteCard key={el._id + "pinned"} data={el} />
               </>
             );
           })}
-        </div> */}
-      </div>
+        </div>
+      </div>}
+
+
       <div className="allNotes-content-wrapper">
-        <h3 className="allnotes-container-info-text">Notes: {state?.allNotes?.length}</h3>
+        <h3 className="allnotes-container-info-text">Notes: {unpinnedNotesArr?.length}</h3>
         <div className="allnotes-container-content">
-          {state.allNotes.map((el) => {
+          {unpinnedNotesArr?.map((el) => {
             return (
                 <NoteCard key={el._id} data={el} />
             );

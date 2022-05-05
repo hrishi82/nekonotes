@@ -68,6 +68,7 @@ export const NoteInput = () => {
               <input type="color" name="color" value={formData.color} onChange = {e=>handleFormData(e)}/>
               {/* <i class="fa-solid fa-palette"></i> */}
             </button>
+      
             <input type="text" className="card-label-input" placeholder="Label..." name="label" value={formData.label} onChange = {e=>handleFormData(e)}/>
           </div>
 
