@@ -6,22 +6,22 @@ export const AsideBar = () => {
     <aside className="sidebar">
       <ul className="sidebar-list-container">
         <li className="sidebar-li-item">
-          <Link to="/allvideos" className="sidebar-links" >
+          <Link to="/homepage" className="sidebar-links" >
             Home
           </Link>
         </li>
         <li className="sidebar-li-item">
-          <Link to="/allplaylistpage" className="sidebar-links" >
+          <Link to="/labelspage" className="sidebar-links" >
             Labels
           </Link>
         </li>
         <li className="sidebar-li-item">
-          <Link to="/likedvideospage" className="sidebar-links">
+          <Link to="/archivepage" className="sidebar-links">
             Archive
           </Link>
         </li>
         <li className="sidebar-li-item">
-          <Link to="/watchlaterpage" className="sidebar-links">
+          <Link to="/trashpage" className="sidebar-links">
             Trash
           </Link>
         </li>

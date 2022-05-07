@@ -11,8 +11,10 @@
 
 .allnotes-container-info-text{
     font-size: 1.1rem;
-    margin: 0 0 1rem 0;
+    /* margin: 0 0 1rem 0; */
+    margin: auto;
     font-weight: 300;
+
 }
 
 .allNotes-content-wrapper{
