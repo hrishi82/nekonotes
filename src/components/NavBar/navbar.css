@@ -5,6 +5,7 @@
     display: flex;
     justify-content: space-between;
     width: fit-content;
+    /* width: 10rem; */
 }
 
 .search-bar{
@@ -12,6 +13,7 @@
     background-color: transparent;
     padding: 0.2rem 0.6rem;
     color: var(--text-default-clr);
+    width: 8rem;
 }
 .search-bar:focus{
     outline: none;
@@ -89,4 +91,29 @@
 
 
 
+.nav-menu-option{
+    color: white;
+    margin-right: 1.5rem;
+    font-size: 1.2rem;
+    padding: 0.7rem;
+    display: none;
+}
 
+.nav-menu-option:hover{
+    background-color: rgb(108, 108, 108, 0.3);
+    padding: 0.7rem;
+    border-radius: 5rem;
+}
+
+
+@media screen and (max-width: 800px){
+    
+    .nav-wrapper{
+        padding: 2rem 0.5rem;
+    }
+    
+    .nav-menu-option{
+        display: block;
+        margin-right: 0.5rem;
+    }
+}

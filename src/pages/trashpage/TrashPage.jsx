@@ -1,11 +1,12 @@
+
 import { useData } from "../../context/dataContext"
 import { NoteCard } from "../homepage/NoteCard/NoteCard";
 import { AsideBar } from "../../components/Aside/AsideBar";
 import {NoteInput} from "../../pages/homepage/NoteInput/NoteInput"
 
-export const ArchivePage = () => {
+export const TrashPage = () => {
   const { state,dispatch } = useData();
-  const {archivedNotes} = state 
+  const {deletedNotes} = state 
 
   return (
     <>
@@ -15,15 +16,15 @@ export const ArchivePage = () => {
 
     <section className="allnotes-container">
       <div className="allNotes-content-wrapper">
-      {archivedNotes?.length > 0 ? (
+      {deletedNotes?.length > 0 ? (
           <h3 className="allnotes-container-info-text">
-            Archived Notes: {archivedNotes?.length}
+            Deleted Notes: {deletedNotes?.length}
           </h3>
         ) : (
-          <h3 className="no-notes-alert">No Archived Notes!</h3>
+          <h3 className="no-notes-alert">No deleted notes!</h3>
         )}
         <div className="allnotes-container-content">
-          {archivedNotes?.map((el) => {
+          {deletedNotes?.map((el) => {
             return (
                 <NoteCard key={el._id} data={el} />
             );

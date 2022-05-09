@@ -21,7 +21,12 @@ const DataProvider = ({children}) =>{
             allNotes:[],
             archivedNotes: [],
             labels: [],
-            deletedNotes: []
+            deletedNotes: [],
+            displayInputModal: false,
+            displaySidebar: false,
+            filters: {
+                sortBy: ""
+            }
         }
 
     const [state, dispatch] = useReducer(dataReducerFunc, initialVal)

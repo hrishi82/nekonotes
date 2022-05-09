@@ -8,11 +8,12 @@
 
   /* Default colors */
 
-  --primary-clr: #0565ff;
-  --primary-hover-clr: #013d9c;
+  --primary-clr: #36a220;
+  --primary-hover-clr: #027b02;
   
   --white-bg: rgb(255, 255, 255);
   --dark-bg: rgb(31, 31, 31);
+  --secondary-dark-bg: rgb(20, 18, 18);
   --grey-bg: rgba(128, 128, 128, 0.226);
   --off-white:rgb(231, 231, 231);
   --super-dark-bg: rgb(0, 0, 0);
@@ -41,8 +42,8 @@
 
   /* Sidebar */
   --sidebar-text-clr: white;
-  --sidebar-link-hover-bg: rgb(233, 233, 233);
-  --sidebar-bg: white;
+  --sidebar-link-hover-bg: rgb(52, 52, 52);
+  --sidebar-bg: rgb(31, 31, 31);
 
   /* Outline */
   --outline-color: rgb(91, 91, 91);
@@ -149,19 +150,31 @@ body{
     background-color: var(--text-default-clr);
   }
 
+.btn-secondary-outline{
+    color: var(--text-default-clr);
+    background-color: transparent;
+    outline: 1px solid var(--text-default-clr);
+  }
+.btn-secondary-outline:hover{
+    color: var(--text-secondary-clr);
+    background-color: var(--text-default-clr);
+    outline: transparent;
+    border: transparent;
+  }
+
 
 
 
 /******** Responsive media queries ********/
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:800px) {
   html {
-      font-size: 12px;
+      font-size: 13px;
   }
 }
 
 @media screen and (max-width:600px) {
   html {
-      font-size: 10px;
+      font-size: 9px;
   }
 }

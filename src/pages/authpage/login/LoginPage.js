@@ -30,6 +30,13 @@ const LoginPage = () => {
             }
 
             if (resp.status === 200 || resp.status === 201 ){
+              localStorage.setItem(
+                'login',
+                JSON.stringify({
+                  token: resp.data.encodedToken,
+                  user: resp.data.foundUser,
+                })
+              );
                 setToken(resp.data.encodedToken)
                 setUser(resp.data.foundUser)
             }

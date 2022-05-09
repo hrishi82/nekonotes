@@ -1,0 +1,32 @@
+.sort-btn{
+    margin-left: 16rem;
+}
+
+.sort-by-option-wrapper{
+    background-color: rgb(54, 54, 54);
+    z-index: 1;
+    position: absolute;
+    right: -6rem;
+    white-space: nowrap;
+    color: var(--text-default-clr);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.sort-by-options{
+    padding: 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.sort-by-options:hover{
+    background-color: var(--grey-bg);
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:800px){
+    .sort-btn{
+        margin-left: 0;
+    }
+}
