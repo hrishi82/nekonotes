@@ -19,9 +19,14 @@ const NavBar = () => {
     dispatch({type: "SET_ALL_ARCHIVED_NOTES", payload: []})
   }
 
+  const toggleSidebar = () =>{
+    dispatch({type: "TOGGLE_SIDEBAR"})
+  }
+
   return (
     <nav className="nav-wrapper">
       <nav className="nav-items-left">
+      <i className="fa-solid fa-bars nav-menu-option" onClick={toggleSidebar}></i>
         <h4 className="nav-title">
           <Link to="/homepage" className="link-no-decor">
             nekoNotes
@@ -29,7 +34,7 @@ const NavBar = () => {
         </h4>
       </nav>
 
-      <nav className="nav-items-center">
+      <nav className="nav-items-right">
         <div className="search-wrapper nav-search-bar">
           <input
             type="text"
@@ -43,18 +48,6 @@ const NavBar = () => {
         </div>
       </nav>
 
-      <nav className="nav-items-right">
-
-        {token ? <Link to="/loginpage" className="nav-link" onClick={(e)=>logoutHandler(e)}>
-          LOGOUT </Link> : 
-         <Link to="/loginpage" className="nav-link">
-          LOGIN
-        </Link>}
-
-         {token && <Link to="/profilepage" className="nav-link">
-          PROFILE
-        </Link>}
-      </nav>
     </nav>
   );
 };

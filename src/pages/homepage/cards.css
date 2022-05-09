@@ -26,10 +26,6 @@
     font-size: 0.9rem;
 }
 
-.thumbtack-active{
-    color: red;
-}
-
 .card-thumbtack-container{
     padding: 0 1rem;
     outline: 1px solid white;
@@ -37,6 +33,12 @@
     right: 1rem;
     top: 0.8rem;
     cursor: pointer;
+}
+
+.thumbtack-active{
+    background-color: var(--primary-clr);
+    outline: none;
+    border: none;
 }
 
 /* Content */
@@ -50,8 +52,8 @@
 }
 
 .card-main-topic{
-    font-size: 1.1rem;
-    font-weight: 350;
+    font-size: 1.4rem;
+    font-weight: 500;
     margin-bottom: 1rem;
     width: 29rem;
 }
@@ -59,6 +61,7 @@
 .card-topic-summary{
     margin-bottom: 0.5rem;
     width: 29rem;
+    font-size: 1.1rem;
 }
 
 .card-main-topic-input, .card-topic-summary-input{
@@ -84,6 +87,7 @@
     font-size: 0.90rem;
     font-weight: 200;
     font-family: 'Poppins', sans-serif;
+    min-height: 40vh;
 }
 
 
@@ -135,3 +139,43 @@
 
 
 
+/* Modal */
+.note-input-master-wrapper {
+    position:fixed;
+    left:0;
+    top:0;
+    width:100vw;
+    height:100vh;
+    display:none;
+    background-color:#000;
+    opacity:0.9;
+    z-index: 50;
+  }
+
+.note-input-container {
+    position:fixed;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    border:solid 1px #000;
+    display:none;
+    background-color:#fff;
+    z-index: 100;
+    border-radius: 2rem;
+  }
+  
+
+
+  .viewModal{
+      display: block;
+  }
+
+
+
+  @media screen and (max-width:800px) {
+    .card{
+        width: 90vw;
+    }
+    
+  }
+  

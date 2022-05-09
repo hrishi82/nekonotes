@@ -9,6 +9,9 @@ import {
   deleteNoteServiceHandler,
   deleteNotesFromArchiveServiceHandler,
 } from "../../../services/services";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const NoteCard = ({ data }) => {
   const navigate = useNavigate();
@@ -21,6 +24,7 @@ export const NoteCard = ({ data }) => {
 
   const editCardHandler = () => {
     setFormData(data);
+    dispatch({ type: "VIEW_INPUT_MODAL" });
   };
 
   const pinHandlerFunc = async () => {
@@ -110,6 +114,15 @@ export const NoteCard = ({ data }) => {
             type: "SET_ALL_ARCHIVED_NOTES",
             payload: deleteResp.data.archives,
           });
+          dispatch({
+            type: "SET_DELETED_NOTES",
+            payload: data,
+          });
+
+          toast.error("Note Deleted!", {
+            position: "bottom-right",
+            autoClose: 3000,
+          theme: "dark"});
         }
       } catch (err) {
         console.log(err);
@@ -123,6 +136,14 @@ export const NoteCard = ({ data }) => {
       try {
         if (deleteResp.status === 200 || deleteResp.status === 201) {
           dispatch({ type: "SET_ALL_NOTES", payload: deleteResp.data.notes });
+          dispatch({
+            type: "SET_DELETED_NOTES",
+            payload: data,
+          });
+          toast.error("Note Deleted!", {
+            position: "bottom-right",
+            autoClose: 1500,
+          theme: "dark"});
         }
       } catch (err) {
         console.log(err);
@@ -136,19 +157,18 @@ export const NoteCard = ({ data }) => {
         className="card display-card relative"
         style={{ backgroundColor: `${color}` }}
       >
-        <section className="card-body-container">
+        <div
+          className={`card-thumbtack-container absolute ${
+            pinned ? "thumbtack-active" : null
+          }`}
+        >
+          <i className={`fa-solid fa-thumbtack `} onClick={pinHandlerFunc}></i>
+        </div>
+        <section className="card-body-container" onClick={editCardHandler}>
           <section className="card-header-container">
             <section className="card-topic-subtopic-container">
               <h4 className="card-main-topic">{title}</h4>
             </section>
-            <div className="card-thumbtack-container absolute">
-              <i
-                className={`fa-solid fa-thumbtack ${
-                  pinned ? "thumbtack-active" : null
-                }`}
-                onClick={pinHandlerFunc}
-              ></i>
-            </div>
           </section>
 
           <p className="card-topic-summary">{content}</p>
@@ -176,6 +196,7 @@ export const NoteCard = ({ data }) => {
           </div>
         </section>
       </div>
+      <ToastContainer />
     </div>
   );
 };

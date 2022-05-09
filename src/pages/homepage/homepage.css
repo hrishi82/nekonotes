@@ -5,37 +5,44 @@
     flex-direction: column;
     margin: auto;
     color: var(--text-default-clr);
-    margin-left: 18rem;
-    margin-top: 2rem;
+    margin-left: 16rem;
 }
 
 .allnotes-container-info-text{
-    font-size: 1.1rem;
-    /* margin: 0 0 1rem 0; */
-    margin: auto;
-    font-weight: 300;
-
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 3rem;
 }
 
 .allNotes-content-wrapper{
-    margin: 2rem 0;
+    margin: auto;
+    margin: 2rem auto;
+}
+
+.actions-nav-container{
+    padding: 1.5rem 1rem;
+    background-color: var(--secondary-dark-bg);
+    box-shadow: 0px 3px 35px 10px rgba(0,0,0,1);
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.add-note-btn{
+    padding: 0.7rem 1rem;
+}
+
+.no-notes-alert{
+    margin-top: 20vh;
+    font-size: 2rem;
 }
 
 
 
 
 
-
-
-
-/* @media screen and (max-width:1000px){
-    .allnotes-container-content{
-        grid-template-columns: 1fr 1fr;
+@media screen and (max-width:800px){
+    .allnotes-container{
+        margin-left: 0;
     }
 }
-
-@media screen and (max-width:700px) {
-    .allnotes-container-content{
-        grid-template-columns: 1fr;
-    }
-} */

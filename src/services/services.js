@@ -5,6 +5,14 @@ export const loginServiceHandler = async ({email, password}) =>{
     return axios.post('/api/auth/login', {email, password})
 }
 
+export const signupServiceHandler = async ({ email, password, name }) =>
+  await axios.post(`/api/auth/signup`, {
+    email,
+    password,
+    name,
+  });
+
+
 
 export const getNotesServiceHandler = async ({encodedToken}) =>{
     return axios.get("/api/notes", {

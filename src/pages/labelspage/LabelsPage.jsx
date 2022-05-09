@@ -1,8 +1,10 @@
 import { useData } from "../../context/dataContext";
 import { NoteCard } from "../homepage/NoteCard/NoteCard";
+import { AsideBar } from "../../components/Aside/AsideBar";
+import {NoteInput} from "../../pages/homepage/NoteInput/NoteInput"
 
 export const LabelsPage = () => {
-  const { state } = useData();
+  const { state,dispatch } = useData();
   const { allNotes } = state;
 
   let allLabels = allNotes.reduce((acc, curr) => {
@@ -13,9 +15,16 @@ export const LabelsPage = () => {
     return acc;
   }, []);
 
+
   return (
-    <section className="allnotes-container">
+    <>
+     <AsideBar/>
+     <NoteInput/>
+     <div  onClick={()=>dispatch({type: "VIEW_INPUT_MODAL"})} className={`note-input-master-wrapper ${state.displayInputModal ? "viewModal" : null}`}>   </div>
+      <section className="allnotes-container">
+
       <div className="allNotes-content-wrapper">
+          
         {allLabels.map((labelName) => {
           return (
             <>
@@ -35,5 +44,8 @@ export const LabelsPage = () => {
         })}
       </div>
     </section>
+    
+    </>
+
   );
 };
