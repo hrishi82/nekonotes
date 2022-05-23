@@ -73,3 +73,32 @@ export const deleteNotesFromArchiveServiceHandler = async ({encodedToken, note, 
 }
 
 
+
+export const getTrashServiceHandler = async ({encodedToken}) =>{
+    return axios.get("/api/trash", {
+        headers: {authorization: encodedToken}
+    })
+}
+
+export const postTrashedNoteServiceHandler = async ({encodedToken, id, note}) =>{
+    return axios.post(`/api/notes/trash/${id}`, 
+    {note},
+    {
+        headers: {authorization: encodedToken},
+    })
+}
+
+export const restoreTrashedNoteServiceHandler = async ({encodedToken, id}) =>{
+    return axios.post(`/api/trash/restore/${id}`, 
+    {},
+    {
+        headers: {authorization: encodedToken},
+    })
+}
+
+export const deleteTrashedNoteServiceHandler = async ({encodedToken, id}) =>{
+    return axios.delete(`/api/trash/delete/${id}`, 
+    {
+        headers: {authorization: encodedToken},
+    })
+}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {loginServiceHandler, getNotesServiceHandler, getArchivedNotesServiceHandler} from "../../../services/services"
+import {loginServiceHandler, getNotesServiceHandler, getArchivedNotesServiceHandler, getTrashServiceHandler} from "../../../services/services"
 import "../Auth.css"
 import {useData} from "../../../context/dataContext"
 import {useAuth} from "../../../context/authContext"
@@ -43,12 +43,17 @@ const LoginPage = () => {
 
             const getNotesResp = await getNotesServiceHandler({encodedToken: resp.data.encodedToken})
             if (getNotesResp.status === 200 || getNotesResp.status === 201 ){
-                dispatch({action:"SET_ALL_NOTES", payload: "getNotesResp.data.notes" })
+                dispatch({type:"SET_ALL_NOTES", payload: getNotesResp.data.notes })
             }
 
             const getArchivedNotesResp = await getArchivedNotesServiceHandler({encodedToken: resp.data.encodedToken})
             if (getArchivedNotesResp.status === 200 || getArchivedNotesResp.status === 201 ){
-                dispatch({action:"SET_ALL_ARCHIVED_NOTES", payload: "getArchivedNotesResp.data.archives" })
+                dispatch({type:"SET_ALL_ARCHIVED_NOTES", payload: getArchivedNotesResp.data.archives })
+            }
+
+            const getTrashNotesResp = await getTrashServiceHandler({encodedToken: resp.data.encodedToken})
+            if (getTrashNotesResp.status === 200 || getTrashNotesResp.status === 201 ){
+                dispatch({type:"SET_DELETED_NOTES", payload: getTrashNotesResp.data.trash })
             }
 
             navigate("/homepage")

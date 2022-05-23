@@ -5,13 +5,10 @@ import { useNavigate } from "react-router-dom";
 import {
   postEditedNoteServiceHandler,
   postNotesToArchiveServiceHandler,
-  restoreNotesFromArchiveServiceHandler,
-  deleteNoteServiceHandler,
-  deleteNotesFromArchiveServiceHandler,
+  postTrashedNoteServiceHandler,
 } from "../../../services/services";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const NoteCard = ({ data }) => {
   const navigate = useNavigate();
@@ -54,29 +51,17 @@ export const NoteCard = ({ data }) => {
     }
   };
 
+
   const archiveHandler = async () => {
     if (!token) {
       navigate("/loginpage");
     }
 
-    let indexID = state?.allNotes?.findIndex((el) => el._id === data._id);
-    let newData = { ...data, archived: !data.archived };
-
-    let postResponse;
-
-    if (indexID !== -1) {
-      postResponse = await postNotesToArchiveServiceHandler({
-        encodedToken: token,
-        note: newData,
-        id: data._id,
-      });
-    } else {
-      postResponse = await restoreNotesFromArchiveServiceHandler({
-        encodedToken: token,
-        note: newData,
-        id: data._id,
-      });
-    }
+    const postResponse = await postNotesToArchiveServiceHandler({
+      encodedToken: token,
+      note: data,
+      id: data._id,
+    });
 
     try {
       if (postResponse.status === 200 || postResponse.status === 201) {
@@ -96,58 +81,22 @@ export const NoteCard = ({ data }) => {
       navigate("/loginpage");
     }
 
-    let archiveIndexID = state?.archivedNotes?.findIndex(
-      (el) => el._id === data._id
-    );
+    const deleteResp = await postTrashedNoteServiceHandler({
+      encodedToken: token,
+      note: data,
+      id: data._id,
+    });
 
-    let deleteResp;
-
-    if (archiveIndexID !== -1) {
-      deleteResp = await deleteNotesFromArchiveServiceHandler({
-        encodedToken: token,
-        note: data,
-        id: data._id,
-      });
-      try {
-        if (deleteResp.status === 200 || deleteResp.status === 201) {
-          dispatch({
-            type: "SET_ALL_ARCHIVED_NOTES",
-            payload: deleteResp.data.archives,
-          });
-          dispatch({
-            type: "SET_DELETED_NOTES",
-            payload: data,
-          });
-
-          toast.error("Note Deleted!", {
-            position: "bottom-right",
-            autoClose: 3000,
-          theme: "dark"});
-        }
-      } catch (err) {
-        console.log(err);
+    try {
+      if (deleteResp.status === 200 || deleteResp.status === 201) {
+        dispatch({ type: "SET_ALL_NOTES", payload: deleteResp.data.notes });
+        dispatch({
+          type: "SET_DELETED_NOTES",
+          payload: deleteResp.data.trash,
+        });
       }
-    } else {
-      deleteResp = await deleteNoteServiceHandler({
-        encodedToken: token,
-        note: data,
-        id: data._id,
-      });
-      try {
-        if (deleteResp.status === 200 || deleteResp.status === 201) {
-          dispatch({ type: "SET_ALL_NOTES", payload: deleteResp.data.notes });
-          dispatch({
-            type: "SET_DELETED_NOTES",
-            payload: data,
-          });
-          toast.error("Note Deleted!", {
-            position: "bottom-right",
-            autoClose: 1500,
-          theme: "dark"});
-        }
-      } catch (err) {
-        console.log(err);
-      }
+    } catch (err) {
+      console.log(err);
     }
   };
 

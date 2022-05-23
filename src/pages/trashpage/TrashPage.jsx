@@ -1,6 +1,6 @@
 
 import { useData } from "../../context/dataContext"
-import { NoteCard } from "../homepage/NoteCard/NoteCard";
+import { TrashCard } from "./TrashCard";
 import { AsideBar } from "../../components/Aside/AsideBar";
 import {NoteInput} from "../../pages/homepage/NoteInput/NoteInput"
 
@@ -11,9 +11,7 @@ export const TrashPage = () => {
   return (
     <>
     <AsideBar/>
-    <NoteInput />
-    <div  onClick={()=>dispatch({type: "VIEW_INPUT_MODAL"})} className={`note-input-master-wrapper ${state.displayInputModal ? "viewModal" : null}`}>   </div>
-
+  
     <section className="allnotes-container">
       <div className="allNotes-content-wrapper">
       {deletedNotes?.length > 0 ? (
@@ -26,7 +24,7 @@ export const TrashPage = () => {
         <div className="allnotes-container-content">
           {deletedNotes?.map((el) => {
             return (
-                <NoteCard key={el._id} data={el} />
+                <TrashCard key={el._id} data={el} />
             );
           })}
         </div>

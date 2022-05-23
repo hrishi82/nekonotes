@@ -10,12 +10,14 @@ export const NotesMain = () => {
 
   const { filteredData } = useFilterHook()
 
+
   let pinnedNotesArr = filteredData
     ?.filter((el) => el.pinned)
     .filter((el) => !el.archived);
   let unpinnedNotesArr = filteredData
     ?.filter((el) => !el.pinned)
     .filter((el) => !el.archived);
+    
   return (
     <>
       <ActionNav/>
