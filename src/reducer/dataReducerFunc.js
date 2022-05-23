@@ -23,7 +23,7 @@ export const dataReducerFunc = (state, action) => {
             break
         }
         case "SET_DELETED_NOTES":{
-            return {...state, deletedNotes: [...state.deletedNotes, action.payload]}
+            return {...state, deletedNotes: action.payload}
         }
         default: 
             return state

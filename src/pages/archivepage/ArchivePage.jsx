@@ -1,7 +1,7 @@
 import { useData } from "../../context/dataContext"
-import { NoteCard } from "../homepage/NoteCard/NoteCard";
 import { AsideBar } from "../../components/Aside/AsideBar";
 import {NoteInput} from "../../pages/homepage/NoteInput/NoteInput"
+import { ArchiveCard } from "./ArchiveCard";
 
 export const ArchivePage = () => {
   const { state,dispatch } = useData();
@@ -25,7 +25,7 @@ export const ArchivePage = () => {
         <div className="allnotes-container-content">
           {archivedNotes?.map((el) => {
             return (
-                <NoteCard key={el._id} data={el} />
+                <ArchiveCard key={el._id} data={el} />
             );
           })}
         </div>

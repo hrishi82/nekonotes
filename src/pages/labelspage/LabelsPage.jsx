@@ -7,7 +7,7 @@ export const LabelsPage = () => {
   const { state,dispatch } = useData();
   const { allNotes } = state;
 
-  let allLabels = allNotes.reduce((acc, curr) => {
+  let allLabels = allNotes?.reduce((acc, curr) => {
     let labelExist = acc?.includes(curr.label);
     if (!labelExist) {
       acc.push(curr.label);
