@@ -48,11 +48,11 @@ export const AsideBar = () => {
       </ul>
 
       <ul className="sidebar-list-container-bottom">
-        <li className="sidebar-li-item">
+        {/* <li className="sidebar-li-item">
         {token && <Link to="/profilepage" className="sidebar-links" onClick={()=>dispatch({type: "TOGGLE_SIDEBAR"})}>
           PROFILE
         </Link>}
-        </li>
+        </li> */}
         <li className="sidebar-li-item">
         {token ? <Link to="/loginpage" className="sidebar-links" onClick={(e)=>logoutHandler(e)}>
           LOGOUT </Link> : 

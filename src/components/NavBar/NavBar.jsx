@@ -35,7 +35,7 @@ const NavBar = () => {
       </nav>
 
       <nav className="nav-items-right">
-        <div className="search-wrapper nav-search-bar">
+        {/* <div className="search-wrapper nav-search-bar">
           <input
             type="text"
             placeholder="Search.."
@@ -45,7 +45,7 @@ const NavBar = () => {
           <button type="submit" className="search-bar-btn">
             <i className="fas fa-search"></i>
           </button>
-        </div>
+        </div> */}
       </nav>
 
     </nav>

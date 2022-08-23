@@ -27,10 +27,10 @@ export const LabelsPage = () => {
           
         {allLabels.map((labelName) => {
           return (
-            <>
-              <h3 className="allnotes-container-info-text">{labelName}</h3>
+            <div>
+              <h3 className="allnotes-container-info-text">{labelName ? labelName : "Un-labeled"}</h3>
 
-              <>
+              
                 {allNotes.map((el) =>
                   el.label === labelName ? (
                     <NoteCard key={el._id} data={el} />
@@ -38,8 +38,8 @@ export const LabelsPage = () => {
                     ""
                   )
                 )}
-              </>
-            </>
+              
+            </div>
           );
         })}
       </div>
