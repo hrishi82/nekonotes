@@ -109,6 +109,18 @@
 }
 
 
+.authform-signup-btn{
+    width: 100%;
+    margin: 0.2rem 0;
+}
+
+
+.auth-input-error-cont{
+    font-size: 0.8rem;
+    color: red;
+    margin: 0 0 1rem 0;
+}
+
 
 @media screen and (max-width: 800px){
     .logout-container{

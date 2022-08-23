@@ -1,5 +1,6 @@
 
 import {useData} from "../context/dataContext"
+import { faker } from "@faker-js/faker";
 
 export const sortByFilter = (data, state) => {
     let prodData  = [...data]
@@ -12,3 +13,12 @@ export const sortByFilter = (data, state) => {
     }
     return prodData
 }
+
+export const createRandomUser = () => {
+    return {
+      name: faker.name.fullName(),
+      email: faker.internet.email(),
+      password: faker.internet.password(),
+    };
+  };
+  

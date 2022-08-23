@@ -4,6 +4,7 @@ import {loginServiceHandler, getNotesServiceHandler, getArchivedNotesServiceHand
 import "../Auth.css"
 import {useData} from "../../../context/dataContext"
 import {useAuth} from "../../../context/authContext"
+import {validateEmail} from "../../../utils/authUtils"
 
 const LoginPage = () => {
 
@@ -14,6 +15,8 @@ const LoginPage = () => {
     const {dispatch} = useData()
   
     const [credential, setCredential] = useState({email: "", password: ""})
+    const [authInputError, setAuthInputError] = useState({ email: "", password: "", errorMessage: "" });
+
 
 
     const loginHandler = async (e) =>{
@@ -59,9 +62,32 @@ const LoginPage = () => {
             navigate("/homepage")
 
         }catch(err){
-            console.log(err)
+          setAuthInputError({...authInputError, errorMessage: "Please provide proper input or credentials"})
         }
 
+    }
+
+
+    const credentialHandler = (e) =>{
+
+      setAuthInputError({...authInputError, errorMessage: ""})
+  
+      if(e.target.name=== "email"){
+        setCredential({ ...credential, email: e.target.value })
+        if (!validateEmail(e.target.value)) {
+          setAuthInputError({
+            ...authInputError,
+            email: 'Invalid email format',
+          });
+        } else {
+          setAuthInputError({ ...authInputError, email: '' });
+        }
+        
+        
+      }else if(e.target.name=== "password"){
+        setCredential({ ...credential, password: e.target.value })
+      }
+      
     }
   
     return (
@@ -71,22 +97,37 @@ const LoginPage = () => {
             <div className="auth-title">
               <h2 className="text-center">Login</h2>
             </div>
+
+            {authInputError.errorMessage !== "" ? (
+                <div className='input auth-input-error-cont text-center'>
+                  {authInputError.errorMessage}
+                </div>
+              ) : null}
   
             <div className="input">
               <label>Email</label>
               <input
                 className="input-txt"
                 type="email"
+                name="email"
                 value={credential.email}
-                onChange = {e=> setCredential({...credential, email: e.target.value})}
+                onChange={(e) =>
+                  credentialHandler(e)
+                }
               />
             </div>
+            {authInputError.email ? (
+                <div className='input auth-input-error-cont'>
+                  {authInputError.email}
+                </div>
+              ) : null}
   
             <div className="input">
               <label>Password</label>
               <input
                 className="input-txt"
                 type="password"
+                name="password"
                 value={credential.password}
                 onChange = {e=> setCredential({...credential, password: e.target.value})}
               />
@@ -102,7 +143,7 @@ const LoginPage = () => {
                 to="/loginpage"
                 className="auth-form-forget-pass-alignment auth-page-link"
               >
-                Forget your Password?
+                Forgot your Password?
               </Link>
             </div>
   
